@@ -1,6 +1,6 @@
 import express from 'express';
-import supabase from './supabaseClient';
-import dotenv from 'dotend';
+import supabase from './supabaseClient.js';
+import dotenv from 'dotenv';
 
 dotenv.config();
 

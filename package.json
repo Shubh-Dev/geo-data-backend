@@ -2,12 +2,14 @@
   "name": "geo-data-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/app.js",
   "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Shubh-Dev",
   "license": "ISC",
   "dependencies": {
     "@supabase/supabase-js": "^2.47.12",
@@ -15,5 +17,6 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2"
-  }
+  },
+  "type": "module"
 }

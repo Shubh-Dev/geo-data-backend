@@ -8,7 +8,7 @@ const app = express();
 const port = 3000;
 
 app.get('/test-supabase', async (req, res) => {
-    const { data, error } = await supabase.from('pg_tables').select('*');
+    const { data, error } = await supabase.from('users').select('*');
 
     if (error) {
         return res.status(500).json({ success: false, message: error.message });

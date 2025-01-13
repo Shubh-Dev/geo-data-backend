@@ -13,16 +13,34 @@ export const signUp = async (req, res) => {
 };
 
 export const signIn = async (req, res) => {
-    const { email, password } = req.body;
-    try {
-        const { data, error } = supabase.auth.signInWithPassword({ email, password });
-        if (error) return res.status(400).json({ error: error.message });
+  const { email, password } = req.body;
 
-        res.status(200).json({ message: 'Logged in successfully', user: data.user });
-    } catch (err) {
-        res.status(500).join({ error: 'Internal server Error' });
+  // Validate request body
+  if (!email || !password) {
+    return res.status(400).json({ error: "Email and password are required" });
+  }
+
+  try {
+    // Authenticate using Supabase
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
+
+    if (error) {
+      return res.status(400).json({ error: error.message });
     }
-}
+
+    // Respond with success
+    res
+      .status(200)
+      .json({ message: "Logged in successfully", user: data.user });
+  } catch (err) {
+    console.error("Unexpected error:", err);
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
+
 
 export const signOut = async (req, res) => {
     try {

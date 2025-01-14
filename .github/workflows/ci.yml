@@ -23,6 +23,10 @@ jobs:
 
       - name: Install dependencies
         run: npm install         # Installs the dependencies defined in package.json
+        
 
       - name: Start the application
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}    # Pass Supabase URL from secrets
+          SUPABASE_API_KEY: ${{ secrets.SUPABASE_KEY }}  # Pass Supabase API key from secrets
         run: npm start           # Run the start script

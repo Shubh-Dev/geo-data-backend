@@ -39,7 +39,7 @@ export const signIn = async (req, res) => {
     // Respond with success
     res
       .status(200)
-      .json({ message: "Logged in successfully", user: data.user });
+      .json({ message: "Logged in successfully", user: data.user, token });
   } catch (err) {
     console.error("Unexpected error:", err);
     res.status(500).json({ error: "Internal server error" });

@@ -30,6 +30,11 @@ export const signIn = async (req, res) => {
     if (error) {
       return res.status(400).json({ error: error.message });
     }
+    const token = data?.access_token;
+
+    if (!token) {
+      return res.status(400).json({ error: "Token not found" });
+    }
 
     // Respond with success
     res

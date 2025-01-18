@@ -6,10 +6,15 @@ sudo systemctl start docker
 sudo systemctl enable docker
 
 
-build
+<!-- build -->
+
 docker build -t geo-data-backend .
 
-run
+<!-- run -->
 
 docker run -p 3000:3000 geo-data-backend
+
+<!-- lie Link -->
+
+https://geo-data-backend-sirq.onrender.com/
 
